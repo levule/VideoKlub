@@ -1,0 +1,41 @@
+﻿@model VideoKlub.ViewModels.CustomerFormViewModel
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Novi korisnik</h2>
+
+@using (Html.BeginForm("Save", "Customers"))
+{
+    @Html.ValidationSummary(true, "Unesite validne informacije u oznacena polja.")
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Name)
+        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.Customer.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.Birthdate)
+        @Html.TextBoxFor(m => m.Customer.Birthdate, "{0:d MMM yyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.Customer.Birthdate)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.MembershipTypeId)
+        @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Izaberi", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.Customer.MembershipTypeId)
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsletter) Da li si subovan ?
+        </label>
+    </div>
+    @Html.HiddenFor(m=>m.Customer.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Sacuvaj</button>
+}  
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
