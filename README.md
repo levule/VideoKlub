@@ -1,6 +1,6 @@
 # VideoKlub(ASP .NET MVC)
 
-- This application was made as part of the course
+- This application was made as part of the course.
 
 ## Technology
 
