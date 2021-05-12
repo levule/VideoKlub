@@ -7,6 +7,7 @@
 In this project many techniques have been demonstrated. 
  - ASP.NET
  - Entity Framework CodeFirst
+ - Razor pages
  - AutoMapper
  - Bootstrap
  - Bootbox
