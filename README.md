@@ -2,7 +2,7 @@
 
 - This application was made as part of the course.
 
-## Technology
+## Technology & techniques
 
 In this project many techniques have been demonstrated. 
  - ASP.NET
